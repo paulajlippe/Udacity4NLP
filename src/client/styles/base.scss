@@ -1,0 +1,81 @@
+$color_1: white;
+$color_2: black;
+$color_3: #24826A;
+$font-family_1: "Gill Sans", sans-serif;
+$font-family_2: Helvetica, serif;
+$font-family_3: "Courier New", monospace;
+$background-color_1: whitesmoke;
+$background-color_2: #ccc;
+$background-color_3: #333;
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+  
+main {        
+    background-color: white;
+}
+
+#resultsTable {
+    table {
+        color: black;
+        border: 2px solid $background-color_3;
+        border-radius: 3px;
+        background-color: whitesmoke;
+        padding: 10px;
+        width: 100%;
+    }
+
+    tr, th, td {
+        font-family: $font-family_2;
+        font-size: small;
+        text-align: left;
+        padding: 10px;
+        border: 1px solid #333;
+    }
+
+    tr:nth-child(even){background-color: white}
+}
+
+section {
+    max-width: 800px;
+    margin: 50px auto;
+}
+
+h1 {
+    margin: 1em;
+    font-family: $font-family_1;
+    font-size: x-large;
+    color: $color_1;
+    text-transform: uppercase;
+}
+
+h2 {
+    margin: 1.5em;
+    font-family: $font-family_2;
+    font-size: medium;   
+    color: $color_1;
+    text-transform: uppercase;
+}
+
+h3 {
+    margin: 1.5em;
+    font-family: $font-family_1;
+    font-size: medium;
+    color: $color_1;
+} 
+
+h4 {
+    font-family: $font-family_1;
+    font-size: large;
+    color: $color_3;
+    text-transform: uppercase;
+} 
+
+p {
+    font-family: $font-family_2;
+    font-size: medium;
+    color: $color_2;   
+}

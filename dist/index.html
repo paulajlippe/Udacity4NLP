@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+            <title>Udacity Project - NLP</title>
+        <meta charset ="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+            <link href="/src/client/assets/nlp.png">
+    <link href="main.css" rel="stylesheet"></head>
+
+<body>
+    <header>
+        <div class="header">
+            <h1>Udacity: Natural Language Processing Project</h1>
+            <h3>Paula Lippe 2023</h3> 
+        </div>
+        <figure>
+            <img src="/src/client/assets/nlp.png" alt="nlp graphic" style="height: 200px", float="right"/>
+        </figure>
+    </header>
+
+    <main>
+        <section>
+            <form class="form" onsubmit="return Client.handleSubmit(event)">
+                <input id="input" type="text" name="input" value="" placeholder="Insert URL">
+                    <br></br>
+                <input id="submit" type="submit" name="" value="Submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+            </form>
+        <section>
+            
+        <section>
+        <h4>Sentiment Analysis:</h4>
+        </br>
+            <div id="resultsTable">
+                <table>
+                    <tr>
+                        <td>Agreement:</td>
+                        <td id="agreement"></td>
+                    </tr>
+                    <tr>
+                        <td>Confidence:</td>
+                        <td id="confidence"></td>
+                    </tr>
+                    <tr>
+                        <td>Irony:</td>
+                        <td id="irony"></td>
+                    </tr>
+                    <tr>
+                        <td>Subjectiviy:</td>
+                        <td id="subjectivity"></td>
+                    </tr>
+                    <tr>
+                        <td>Score:</td>
+                        <td id="score_tag"></td>
+                    </tr>
+                </table>
+            </div>
+        </section>    
+    </main>
+
+    <footer>
+        <h3>Thanks for using our NLP service!</h3>
+    </footer>
+
+    <script>     
+        // Check that service workers are supported     
+        if ('serviceWorker' in navigator) {         
+        // Use the window load event to keep the page load performant         
+            window.addEventListener('load', () => {             
+                navigator.serviceWorker.register('../../../dist/service-worker.js').then(function(registration) {
+                    // Registration was successful
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(error) {
+                    // registration failed :(
+                    console.log('ServiceWorker registration failed: ', error);
+                    });
+                });
+            };       
+    </script> 
+
+<script type="text/javascript" src="main.js"></script></body>
+</html>
