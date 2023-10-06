@@ -3,6 +3,7 @@ const webpack = require("webpack")
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 import { GenerateSW } from 'workbox-webpack-plugin';
+const EnvironmentPlugin = require('EnvironmentPlugin');
 
 module.exports = {
     mode: 'production',
@@ -18,7 +19,7 @@ module.exports = {
                 test: /\.scss$/,
                 use: [ 'style-loader', 'css-loader', 'sass-loader' ]
             }
-        ]
+        ],
     },
         plugins: [
             new HtmlWebPackPlugin({
@@ -36,7 +37,23 @@ module.exports = {
             }),
             new GenerateSW({
                 swDest: '../../../dist/service-worker.js'
-              })
-            ]
+              }),
+            new EnvironmentPlugin({
+            NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
+            DEBUG: false,
+            })
+        ]
 }
-
+module.exports = (env) => {
+    // Use env.<YOUR VARIABLE> here:
+    console.log('Goal: ', env.goal); // 'local'
+    console.log('Production: ', env.production); // true
+  
+    return {
+      entry: './src/index.js',
+      output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist'),
+      },
+    };
+  };
