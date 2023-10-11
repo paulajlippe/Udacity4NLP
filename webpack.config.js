@@ -2,9 +2,9 @@ const path = require("path")
 const webpack = require("webpack")
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-import { GenerateSW } from 'workbox-webpack-plugin';
+const WorkboxPlugin = require('workbox-webpack-plugin');
 // const EnvironmentPlugin = require('EnvironmentPlugin');
-const Dotenv = require('dotenv-webpack');
+// const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     mode: 'production',
@@ -36,12 +36,13 @@ module.exports = {
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
         }),
-        new GenerateSW({
-            swDest: './service-worker.js'
-            }),
-        new Dotenv({
-            path: '.env',
-            }),
+        // new WorkboxPlugin.GenerateSW('./dist/service-worker.js')
+        // new GenerateSW({
+        //     swDest: './service-worker.js'
+        //     }),
+        // new Dotenv({
+        //     path: '.env',
+        //     }),
         // new EnvironmentPlugin({
         //     NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
         //     DEBUG: false,
