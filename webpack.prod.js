@@ -36,9 +36,37 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({filename: '[name].css'}),
         new WorkboxPlugin.GenerateSW(),
+        new Dotenv({
+            path: '.env',
+          }),
         // new EnvironmentPlugin({
         //     NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
         //     DEBUG: false,
         //     })
     ],
 }
+module.exports = (env) => {
+    '${process.env.API_KEY}',
+    console.log('Goal: ', env.goal); // 'local'
+    console.log('Production: ', env.production); // true
+  
+    return {
+        entry: './src/index.js',
+        output: {
+            filename: 'bundle.js',
+            path: path.resolve(__dirname, 'dist'),
+        },
+    plugins: [
+        new GenerateSW({
+            swDest: './service-worker.js'
+            }),
+        new Dotenv({
+            path: dotenvFilename,
+          }),
+        // new EnvironmentPlugin({
+        // NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
+        // DEBUG: false,
+        // })
+      ],    
+    };
+  };
