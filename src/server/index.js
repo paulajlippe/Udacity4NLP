@@ -3,10 +3,10 @@
 
 // const dotenv = require('dotenv');
 // dotenv.config();
-// // dotenv.load_dotenv()
 
 // const apiKey = process.env.API_KEY;
 // console.log(`Your API key is ${process.env.API_KEY}`);
+
 const apiKey = 'ddf5d7129fe1371886821fd5f0bcd335';
 
 // if (process.env.NODE_ENV === 'production') {

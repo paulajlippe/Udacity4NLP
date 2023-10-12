@@ -12,7 +12,7 @@ const lang = 'en';
 const apiKey = 'ddf5d7129fe1371886821fd5f0bcd335';
 // let KEYS = await getApiKey();
 // const apiKey = KEYS.apiKey;
-// console.log(apiKey)
+console.log(apiKey)
     
     const url =
     `${baseURL}&key=${apiKey}&url=${input}&lang=${lang}`
