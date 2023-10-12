@@ -26,6 +26,7 @@
     "production": "0.0.2",
     "sass-loader": "^8.0.2",
     "webpack": "^4.35.3",
+    "webpack-dotenv-plugin": "^2.1.0",
     "workbox-webpack-plugin": "^7.0.0"
   },
   "devDependencies": {
