@@ -17,10 +17,10 @@ const apiKey = KEY.apiKey;
     const response = await fetch(url)
       try {
         const newData = await response.json()
-        document.getElementById('agreement').innerHTML = newData.agreement;
+        document.getElementById('agreement').innerHTML = newData.agreement.toProperCase();
         document.getElementById('confidence').innerHTML = newData.confidence + "%";
-        document.getElementById('irony').innerHTML = newData.irony;
-        document.getElementById('subjectivity').innerHTML = newData.subjectivity;
+        document.getElementById('irony').innerHTML = newData.irony.toProperCase();
+        document.getElementById('subjectivity').innerHTML = newData.subjectivity.toProperCase();
         document.getElementById('score_tag').innerHTML = newData.score_tag;
       }
       catch (error) {
