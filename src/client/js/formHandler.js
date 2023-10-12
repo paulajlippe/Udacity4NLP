@@ -33,11 +33,11 @@ console.log(apiKey)
 // GET API KEY
     async function getApiKey (){
         const request = await fetch('/api');
-        try{
+        try {
             const KEY = await request.json();
             return KEY;
         }
-        catch (error){
+        catch (error) {
             console.log('error', error);
         }
     }

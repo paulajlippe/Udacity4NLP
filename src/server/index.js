@@ -82,8 +82,5 @@ function getKey(req, res){
     let KEY = {
         "apiKey": apiKey
     }
-//   let KEY = {
-//     "KEY": '${process.env.API_KEY}'
-//   }
   res.send(KEY);
 }
