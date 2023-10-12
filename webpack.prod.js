@@ -43,34 +43,5 @@ module.exports = {
         new DefinePlugin({
             "process.env": JSON.stringify(process.env),
             }),
-        // new DefinePlugin({
-        //     'process.env': JSON.stringify(dotenv.config().parsed)
-        // })
     ],
 }
-
-// // this is to load env vars for this config
-// require('dotenv').config({ // it puts the content to the "process.env" var. System vars are taking precedence
-//     path: '.env',
-// });
-
-// module.exports = (env) => {
-//     '${process.env.API_KEY}',
-//     console.log('Goal: ', env.goal); // 'local'
-//     console.log('Production: ', env.production); // true
-    // const isProduction = env.NODE_ENV === 'production';
-    // const dotenvFilename = isProduction ? '.env' : '.env';
-  
-//     return {
-//         entry: './src/index.js',
-//         output: {
-//             filename: 'bundle.js',
-//             path: path.resolve(__dirname, 'dist'),
-//         },
-//     plugins: [
-//         new Dotenv({
-//             path: dotenvFilename,
-//           }),
-//       ],    
-//     };
-//   };

@@ -9,10 +9,8 @@ console.log("::: Form Submitted :::")
 const baseURL = 'https://api.meaningcloud.com/sentiment-2.1?';
 const lang = 'en';
 
-// const apiKey = 'ddf5d7129fe1371886821fd5f0bcd335';
-let KEY = await getApiKey();
+const KEY = await getApiKey();
 const apiKey = KEY.apiKey;
-console.log(apiKey)
     
     const url =
     `${baseURL}&key=${apiKey}&url=${input}&lang=${lang}`
@@ -32,9 +30,9 @@ console.log(apiKey)
 
 // GET API KEY
     async function getApiKey (){
-        const request = await fetch('/api');
+        const req = await fetch('http://localhost:3000/api');
         try {
-            const KEY = await request.json();
+            const KEY = await req.json();
             return KEY;
         }
         catch (error) {
