@@ -1,10 +1,11 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebPackPlugin = require("html-webpack-plugin")
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-const {GenerateSW} = require('workbox-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
+const { GenerateSW } = require('workbox-webpack-plugin')
+const Dotenv = require('dotenv-webpack')
 // const EnvironmentPlugin = require('EnvironmentPlugin')
 
 // We use the loader supplied by plugin instead of style-loader here. This enables putting the styles
@@ -32,20 +33,18 @@ module.exports = {
     plugins: [
         new HtmlWebPackPlugin({
             template: "./src/client/views/index.html",
-            filename: "./dist/index.html",
+            filename: "./index.html",
         }),
         new MiniCssExtractPlugin({filename: '[name].css'}),
         new GenerateSW({
             swDest: './dist/service-worker.js'
             }),
-        // new WorkboxPlugin.GenerateSW('./dist/service-worker.js')
-        // new Dotenv({
-        //     path: '.env',
-        //   }),
-        // new EnvironmentPlugin({
-        //     NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
-        //     DEBUG: false,
-        //     })
+        new webpack.DefinePlugin({
+            "process.env": JSON.stringify(process.env),
+            }),
+        new Dotenv({
+            path: '.env'
+            }),
     ],
 }
 // module.exports = (env) => {
@@ -60,9 +59,6 @@ module.exports = {
 //             path: path.resolve(__dirname, 'dist'),
 //         },
 //     plugins: [
-//         new GenerateSW({
-//             swDest: './service-worker.js'
-//             }),
 //         new Dotenv({
 //             path: dotenvFilename,
 //           }),
@@ -70,6 +66,27 @@ module.exports = {
 //         // NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
 //         // DEBUG: false,
 //         // })
+//       ],    
+//     };
+//   };
+
+//   module.exports = (env) => {
+    // const isProduction = env.NODE_ENV === 'production';
+    // const dotenvFilename = isProduction ? '.env' : '.env';
+  
+    // return {
+    //   entry: './src/server/index.js',
+    //   output: {
+    //     path: path.resolve(__dirname, 'dist'),
+    //     filename: 'main.bundle.js',
+    //   },
+    //   plugins: [
+    //     new Dotenv({
+    //       path: '.env'
+    //     }),
+        // new webpack.DefinePlugin({
+        //   'process.env.NODE_ENV': JSON.stringify(env.NODE_ENV),
+        // }),
 //       ],    
 //     };
 //   };

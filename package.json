@@ -4,7 +4,7 @@
   "main": "index.js",
   "keywords": [],
   "author": "Paula Lippe",
-  "license": "ISC",
+  "license": "MIT",
   "description": "Paula Lippe's Udacity NLP Project",
   "scripts": {
     "test": "jest",
@@ -19,6 +19,7 @@
     "cors": "^2.8.5",
     "css-loader": "^3.5.3",
     "dotenv": "^16.3.1",
+    "dotenv-webpack": "^8.0.1",
     "express": "^4.17.1",
     "node-env-webpack-plugin": "^1.1.0",
     "node-fetch": "^2.7.0",
@@ -46,6 +47,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/paulajlippe/Udacity_NLP"
+    "url": "https://github.com/paulajlippe/Udacity4NLP"
   }
 }

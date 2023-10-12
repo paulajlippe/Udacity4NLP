@@ -1,13 +1,13 @@
-// import dotenv 
+// import dotenv, 
 // import requests
-// dotenv.load_dotenv()
 
-const dotenv = require('dotenv');
-dotenv.config();
+// const dotenv = require('dotenv');
+// dotenv.config();
+// // dotenv.load_dotenv()
 
-const apiKey = process.env.API_KEY;
-console.log(`Your API key is ${process.env.API_KEY}`);
-// const apiKey = 'ddf5d7129fe1371886821fd5f0bcd335';
+// const apiKey = process.env.API_KEY;
+// console.log(`Your API key is ${process.env.API_KEY}`);
+const apiKey = 'ddf5d7129fe1371886821fd5f0bcd335';
 
 // if (process.env.NODE_ENV === 'production') {
 //     console.log('Welcome to production');
@@ -79,11 +79,11 @@ async function postResults (req, res){
         });
 }
 
-// GET ROUTE FOR API_KEYS
-app.get('/key', getKey);
-function getKey(req, res){
-  let KEY = {
-      "apiKey": apiKey,
-  }
-  res.send(KEY);
-}
+// // GET ROUTE FOR API_KEYS
+// app.get('/api', getKey);
+// function getKey(req, res){
+//   let KEY = {
+//       "apiKey": apiKey,
+//   }
+//   res.send(KEY);
+// }
