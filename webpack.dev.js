@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const { GenerateSW } = require('workbox-webpack-plugin')
 
 module.exports = {
     mode: 'development',
@@ -22,7 +23,14 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: [ 'style-loader', 'css-loader', 'sass-loader' ]
-            }
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                loader: "file-loader",
+                options: {
+                  name: "[path][name].[ext]",
+                },
+            },
         ],
     },
     plugins: [
@@ -39,5 +47,8 @@ module.exports = {
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
         }),
+        new GenerateSW({
+            swDest: './dist/service-worker.js'
+            }),
     ]
 }
